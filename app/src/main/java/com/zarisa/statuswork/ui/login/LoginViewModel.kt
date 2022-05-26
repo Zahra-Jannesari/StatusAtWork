@@ -15,6 +15,7 @@ class LoginViewModel(var userRepository: UserRepository) : ViewModel() {
             try {
                 loginSuccessful.value = userRepository.getUser(id, password)
             } catch (e: Exception) {
+                loginSuccessful.value=false
                 Log.d("TAG", "login:failed $e ")
             }
         }

@@ -39,10 +39,15 @@ class LoginFragment : Fragment() {
 
     private fun onClicks() {
         binding.btnLogin.setOnClickListener {
-            vModel.login(
-                binding.editTextId.text.toString(),
-                Integer.parseInt(binding.editTextPassword.text.toString())
-            )
+            if (binding.editTextId.text.isNullOrBlank() && binding.editTextPassword.text.isNullOrBlank())
+                Toast.makeText(requireContext(), "Fill in all information.", Toast.LENGTH_SHORT)
+                    .show()
+            else
+                vModel.login(
+                    binding.editTextId.text.toString(),
+                    Integer.parseInt(binding.editTextPassword.text.toString())
+                )
+
         }
     }
 

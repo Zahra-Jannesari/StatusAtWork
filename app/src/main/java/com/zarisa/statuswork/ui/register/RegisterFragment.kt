@@ -35,7 +35,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun observers() {
-        vModel.state.observe(viewLifecycleOwner) { it ->
+        vModel.state.observe(viewLifecycleOwner) {
             when (it) {
                 ApiState.DONE -> {
                     binding.btnRegister.let { btn ->
@@ -72,16 +72,21 @@ class RegisterFragment : Fragment() {
                     onRegisterClicked = true
                 } else
                     Toast.makeText(requireContext(), "data is not valid", Toast.LENGTH_SHORT).show()
-            }
-            else findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            } else findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
-        binding.btnLogin.setOnClickListener{
+        binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
     }
 
     private fun dataIsValid(): Boolean {
-        return true
+        var dataIsValid = true
+        if (binding.editTextName.text.isNullOrBlank() ||
+            binding.editTextAvatarUrl.text.isNullOrBlank() ||
+            binding.editTextPassword.text.isNullOrBlank()
+        )
+            dataIsValid = false
+        return dataIsValid
     }
 
 
