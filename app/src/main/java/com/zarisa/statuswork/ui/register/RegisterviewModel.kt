@@ -13,9 +13,17 @@ class RegisterViewModel(var userRepository: UserRepository) : ViewModel() {
     val state = MutableLiveData<ApiState>()
     fun registerUser(user: User) {
         viewModelScope.launch {
-            state.value = ApiState.LOADING
-            userId.value = userRepository.registerUser(user).id
-            state.value = ApiState.DONE
+            try {
+                state.value = ApiState.LOADING
+                userId.value = userRepository.registerUser(user).id
+                state.value = ApiState.DONE
+            }catch (e:java.net.UnknownHostException){
+                state.value = ApiState.BAD_CONNECTION
+            }
+            catch (e:Exception){
+                state.value = ApiState.ERROR
+            }
+
         }
     }
 }

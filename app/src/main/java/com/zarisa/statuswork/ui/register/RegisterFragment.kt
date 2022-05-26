@@ -49,6 +49,28 @@ class RegisterFragment : Fragment() {
                         btn.text = "loading..."
                     }
                 }
+                ApiState.ERROR -> {
+                    binding.btnRegister.let { btn ->
+                        btn.text = "Register"
+                        btn.isEnabled = true
+                    }
+                    Toast.makeText(
+                        requireContext(),
+                        "Something went wrong. Please try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else -> {
+                    binding.btnRegister.let { btn ->
+                        btn.text = "Register"
+                        btn.isEnabled = true
+                    }
+                    Toast.makeText(
+                        requireContext(),
+                        "Please check your connection and try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
         vModel.userId.observe(viewLifecycleOwner) {

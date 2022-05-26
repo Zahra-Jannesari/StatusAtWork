@@ -10,5 +10,5 @@ data class User(
     @Json(name = "status") val status: String
 )
 enum class Status{NEW_USER, AT_WORK}
-enum class ApiState{LOADING,DONE}
+enum class ApiState{LOADING,DONE,ERROR,BAD_CONNECTION}
 
