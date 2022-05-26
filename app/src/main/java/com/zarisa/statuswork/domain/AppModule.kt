@@ -6,6 +6,8 @@ import com.zarisa.statuswork.data.user.BASE_URL
 import com.zarisa.statuswork.data.user.UserLocalDataSource
 import com.zarisa.statuswork.data.user.UserRepository
 import com.zarisa.statuswork.data.user.client
+import com.zarisa.statuswork.ui.login.LoginViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -17,7 +19,6 @@ val appModule = module {
     single {
         UserLocalDataSource()
     }
-
     single {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
@@ -29,4 +30,5 @@ val appModule = module {
             .build()
         retrofit
     }
+    viewModel{LoginViewModel(get())}
 }

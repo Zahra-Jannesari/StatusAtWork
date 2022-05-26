@@ -1,4 +1,8 @@
 package com.zarisa.statuswork.ui.login
 
-class LoginViewModel {
+import androidx.lifecycle.ViewModel
+import com.zarisa.statuswork.data.user.UserRepository
+
+class LoginViewModel(userRepository:UserRepository) : ViewModel(){
+
 }
