@@ -1,4 +1,4 @@
-package com.zarisa.statuswork.data.remote_datasource
+package com.zarisa.statuswork.data.user
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

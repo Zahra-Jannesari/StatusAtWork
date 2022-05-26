@@ -2,17 +2,22 @@ package com.zarisa.statuswork.domain
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.zarisa.statuswork.data.remote_datasource.BASE_URL
-import com.zarisa.statuswork.data.remote_datasource.client
+import com.zarisa.statuswork.data.user.BASE_URL
+import com.zarisa.statuswork.data.user.UserLocalDataSource
+import com.zarisa.statuswork.data.user.UserRepository
+import com.zarisa.statuswork.data.user.client
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 val appModule = module {
     single {
-
-
+        UserRepository(get(),get())
     }
+    single {
+        UserLocalDataSource()
+    }
+
     single {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())

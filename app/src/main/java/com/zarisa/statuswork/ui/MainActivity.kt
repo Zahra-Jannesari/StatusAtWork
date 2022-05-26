@@ -1,7 +1,8 @@
-package com.zarisa.statuswork
+package com.zarisa.statuswork.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.zarisa.statuswork.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
