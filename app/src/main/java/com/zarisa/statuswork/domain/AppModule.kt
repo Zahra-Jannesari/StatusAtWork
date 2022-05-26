@@ -8,6 +8,7 @@ import com.zarisa.statuswork.data.user.UserRemoteDataSource
 import com.zarisa.statuswork.data.user.UserRepository
 import com.zarisa.statuswork.data.network.LoginService
 import com.zarisa.statuswork.data.network.client
+import com.zarisa.statuswork.ui.home.HomeViewModel
 import com.zarisa.statuswork.ui.login.LoginViewModel
 import com.zarisa.statuswork.ui.register.RegisterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -44,4 +45,5 @@ val appModule = module {
     }
     viewModel { LoginViewModel(get()) }
     viewModel { RegisterViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
 }
