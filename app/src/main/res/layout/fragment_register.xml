@@ -9,6 +9,7 @@
     tools:context=".ui.register.RegisterFragment"
     android:gravity="center">
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -44,7 +45,7 @@
             android:id="@+id/editText_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="numberPassword"
             android:hint="Password"
             android:maxLines="1" />
 
@@ -70,6 +71,12 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tv_userId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,6 +84,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -84,6 +92,7 @@
             android:layout_marginHorizontal="10dp"/>
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="0dp"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"

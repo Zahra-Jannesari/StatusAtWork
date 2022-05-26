@@ -9,6 +9,7 @@ import com.zarisa.statuswork.data.user.UserRepository
 import com.zarisa.statuswork.data.network.LoginService
 import com.zarisa.statuswork.data.network.client
 import com.zarisa.statuswork.ui.login.LoginViewModel
+import com.zarisa.statuswork.ui.register.RegisterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -42,4 +43,5 @@ val appModule = module {
         UserRepository(get(), get())
     }
     viewModel { LoginViewModel(get()) }
+    viewModel { RegisterViewModel(get()) }
 }

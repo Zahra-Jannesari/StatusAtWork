@@ -1,8 +1,14 @@
 package com.zarisa.statuswork.data.user
 
-class UserRepository(
-    userLocalDataSource: UserLocalDataSource,
-    userRemoteDataSource: UserRemoteDataSource
-) {
+import com.zarisa.statuswork.model.User
 
+class UserRepository(
+    var userLocalDataSource: UserLocalDataSource,
+    var userRemoteDataSource: UserRemoteDataSource
+) {
+    lateinit var currentUser:User
+    suspend fun registerUser(user: User):User{
+        currentUser=userRemoteDataSource.registerUser(user)
+        return currentUser
+    }
 }
