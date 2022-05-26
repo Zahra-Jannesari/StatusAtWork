@@ -72,7 +72,11 @@ class RegisterFragment : Fragment() {
                     onRegisterClicked = true
                 } else
                     Toast.makeText(requireContext(), "data is not valid", Toast.LENGTH_SHORT).show()
-            } else findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            }
+            else findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
+        binding.btnLogin.setOnClickListener{
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
     }
 
