@@ -30,16 +30,14 @@ class LoginFragment : Fragment() {
 
     private fun observers() {
         vModel.loginSuccessful.observe(viewLifecycleOwner) {
-            if (it)
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            else
-                Toast.makeText(requireContext(), "not found!", Toast.LENGTH_SHORT).show()
+            if (it.isNotBlank()) Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            if (it == "Login successful.") findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
 
     private fun onClicks() {
         binding.btnLogin.setOnClickListener {
-            if (binding.editTextId.text.isNullOrBlank() && binding.editTextPassword.text.isNullOrBlank())
+            if (binding.editTextId.text.isNullOrBlank() || binding.editTextPassword.text.isNullOrBlank())
                 Toast.makeText(requireContext(), "Fill in all information.", Toast.LENGTH_SHORT)
                     .show()
             else
@@ -47,7 +45,6 @@ class LoginFragment : Fragment() {
                     binding.editTextId.text.toString(),
                     Integer.parseInt(binding.editTextPassword.text.toString())
                 )
-
         }
     }
 
