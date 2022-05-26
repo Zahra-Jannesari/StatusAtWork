@@ -1,4 +1,6 @@
 package com.zarisa.statuswork.data.user
 
-class UserRemoteDataSource {
+import com.zarisa.statuswork.data.network.LoginService
+
+class UserRemoteDataSource (loginApiService: LoginService){
 }
