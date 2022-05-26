@@ -38,21 +38,22 @@ class RegisterFragment : Fragment() {
         vModel.state.observe(viewLifecycleOwner) { it ->
             when (it) {
                 ApiState.DONE -> {
-                    binding.btnRegister.let{btn->
+                    binding.btnRegister.let { btn ->
                         btn.text = "continue"
                         btn.isEnabled = true
                     }
                 }
                 ApiState.LOADING -> {
-                    binding.btnRegister.let { btn->
+                    binding.btnRegister.let { btn ->
                         btn.isEnabled = false
-                        btn.text=""
+                        btn.text = "loading..."
                     }
                 }
             }
         }
         vModel.userId.observe(viewLifecycleOwner) {
-            binding.tvUserId.text = it.toString()
+            binding.tvUserId.text = "Your id:$it"
+            Toast.makeText(requireContext(), "Your id:$it", Toast.LENGTH_SHORT).show()
         }
     }
 
