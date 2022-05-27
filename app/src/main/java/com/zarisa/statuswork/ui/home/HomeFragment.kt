@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zarisa.statuswork.R
@@ -33,6 +34,9 @@ class HomeFragment : Fragment() {
     private fun onClicks() {
         binding.btnUpdateStatus.setOnClickListener {
             vModel.updateStatus(binding.editTextStatus.text.toString())
+        }
+        binding.btnUserList.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_userListFragment)
         }
     }
 
