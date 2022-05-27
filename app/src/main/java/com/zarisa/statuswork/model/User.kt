@@ -7,7 +7,7 @@ data class User(
     @Json(name = "name") val name: String,
     @Json(name = "avatar") val avatarUrl: String="a",
     @Json(name = "password") val password: Int,
-    @Json(name = "status") val status: String="New User"
+    @Json(name = "status") var status: String="New User"
 )
 
 enum class ApiState { LOADING, DONE, ERROR, BAD_CONNECTION }

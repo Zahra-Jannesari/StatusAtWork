@@ -22,4 +22,9 @@ class UserRepository(
         }
         return loginSuccessful
     }
+    suspend fun updateStatus(status:String){
+        currentUser.status=status
+        userRemoteDataSource.updateUser(currentUser.id,currentUser)
+        currentUser=userRemoteDataSource.getUser(currentUser.id)
+    }
 }

@@ -3,10 +3,7 @@ package com.zarisa.statuswork.data.network
 import com.zarisa.statuswork.model.User
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 
 val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
@@ -23,6 +20,9 @@ interface LoginService {
 
     @GET("users/{id}")
     suspend fun getUser(@Path("id") id: String): User
+
+    @PUT("users/{id}")
+    suspend fun updateUser (@Body user: User, @Path("id") id : String)
 }
 
 
