@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.zarisa.statuswork.R
 import com.zarisa.statuswork.databinding.FragmentRegisterBinding
 import com.zarisa.statuswork.model.ApiState
-import com.zarisa.statuswork.model.Status
 import com.zarisa.statuswork.model.User
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -87,8 +86,7 @@ class RegisterFragment : Fragment() {
                         User(
                             name = binding.editTextName.text.toString(),
                             avatarUrl = binding.editTextAvatarUrl.text.toString(),
-                            password = Integer.parseInt(binding.editTextPassword.text.toString()),
-                            status = "${Status.NEW_USER}"
+                            password = Integer.parseInt(binding.editTextPassword.text.toString())
                         )
                     )
                     onRegisterClicked = true
