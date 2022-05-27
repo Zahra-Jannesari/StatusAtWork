@@ -1,5 +1,6 @@
 package com.zarisa.statuswork.ui.register
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,6 +22,7 @@ class RegisterViewModel(var userRepository: UserRepository) : ViewModel() {
                 state.value = ApiState.BAD_CONNECTION
             }
             catch (e:Exception){
+                Log.d("TAG", "registerUser: fail $e")
                 state.value = ApiState.ERROR
             }
 

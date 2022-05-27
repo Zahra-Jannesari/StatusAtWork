@@ -90,9 +90,17 @@ class RegisterFragment : Fragment() {
                         )
                     )
                     onRegisterClicked = true
-                } else
-                    Toast.makeText(requireContext(), "data is not valid", Toast.LENGTH_SHORT).show()
-            } else findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                }
+            } else if (vModel.state.value == ApiState.DONE) {
+                findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Try:\n check your connection.\n send a report.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                onRegisterClicked = false
+            }
         }
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
@@ -102,10 +110,11 @@ class RegisterFragment : Fragment() {
     private fun dataIsValid(): Boolean {
         var dataIsValid = true
         if (binding.editTextName.text.isNullOrBlank() ||
-            binding.editTextAvatarUrl.text.isNullOrBlank() ||
             binding.editTextPassword.text.isNullOrBlank()
-        )
+        ) {
             dataIsValid = false
+            Toast.makeText(requireContext(), "data is not valid", Toast.LENGTH_SHORT).show()
+        }
         return dataIsValid
     }
 
